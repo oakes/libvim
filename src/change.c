@@ -420,6 +420,11 @@ changed_common(
     bufferUpdateCallback(bufferUpdate);
   }
 
+  if (destructuredBufferUpdateCallback != NULL)
+  {
+    destructuredBufferUpdateCallback(curbuf, lnum, lnume, xtra);
+  }
+
 #ifdef FEAT_EVAL
   may_record_change(lnum, col, lnume, xtra);
 #endif

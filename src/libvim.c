@@ -107,6 +107,11 @@ void vimSetBufferUpdateCallback(BufferUpdateCallback f)
   bufferUpdateCallback = f;
 }
 
+void vimSetDestructuredBufferUpdateCallback(DestructuredBufferUpdateCallback f)
+{
+  destructuredBufferUpdateCallback = f;
+}
+
 void vimSetAutoCommandCallback(AutoCommandCallback f)
 {
   autoCommandCallback = f;

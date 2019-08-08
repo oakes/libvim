@@ -67,6 +67,7 @@ int vimBufferGetReadOnly(buf_T *buf);
 void vimBufferSetReadOnly(buf_T *buf, int modifiable);
 
 void vimSetBufferUpdateCallback(BufferUpdateCallback bufferUpdate);
+void vimSetDestructuredBufferUpdateCallback(DestructuredBufferUpdateCallback bufferUpdate);
 
 /***
  * Autocommands

@@ -2431,6 +2431,7 @@ typedef enum
 } writeFailureReason_T;
 
 typedef void (*BufferUpdateCallback)(bufferUpdate_T bufferUpdate);
+typedef void (*DestructuredBufferUpdateCallback)(buf_T *buf, linenr_T lnum, linenr_T lnume, long xtra);
 typedef void (*FileWriteFailureCallback)(writeFailureReason_T failureReason, buf_T *buf);
 typedef void (*MessageCallback)(char_u *title, char_u *msg, msgPriority_T priority);
 typedef void (*DirectoryChangedCallback)(char_u *path);
