@@ -104,6 +104,7 @@ colnr_T vimCursorGetColumn(void);
 linenr_T vimCursorGetLine(void);
 pos_T vimCursorGetPosition(void);
 void vimCursorSetPosition(pos_T pos);
+void vimCursorSetPositionDestructured(linenr_T lnum, colnr_T col);
 
 /***
  * vimCursorGetDesiredColumn

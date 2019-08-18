@@ -213,6 +213,14 @@ void vimCursorSetPosition(pos_T pos)
   curs_columns(TRUE);
 }
 
+void vimCursorSetPositionDestructured(linenr_T lnum, colnr_T col)
+{
+  pos_T pos;
+  pos.lnum = lnum;
+  pos.col = col;
+  vimCursorSetPosition(pos);
+}
+
 void vimInputCore(int should_replace_termcodes, char_u *input)
 {
   if (should_replace_termcodes)
