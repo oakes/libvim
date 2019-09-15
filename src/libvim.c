@@ -549,6 +549,11 @@ void vimSetYankCallback(YankCallback callback)
   yankCallback = callback;
 }
 
+void vimSetDestructuredYankCallback(DestructuredYankCallback callback)
+{
+  destructuredYankCallback = callback;
+}
+
 void vimInit(int argc, char **argv)
 {
   mparm_T params;

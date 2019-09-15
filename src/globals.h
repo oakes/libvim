@@ -65,6 +65,7 @@ EXTERN VoidCallback unhandledEscapeCallback INIT(= NULL);
 EXTERN WindowSplitCallback windowSplitCallback INIT(= NULL);
 EXTERN WindowMovementCallback windowMovementCallback INIT(= NULL);
 EXTERN YankCallback yankCallback INIT(= NULL);
+EXTERN DestructuredYankCallback destructuredYankCallback INIT(= NULL);
 
 /*
  * Globals for managing the state machine

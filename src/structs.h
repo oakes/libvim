@@ -139,6 +139,7 @@ typedef void (*VoidCallback)(void);
 typedef void (*WindowSplitCallback)(windowSplit_T splitType, char_u *fname);
 typedef void (*WindowMovementCallback)(windowMovement_T movementType, int count);
 typedef void (*YankCallback)(yankInfo_T *yankInfo);
+typedef void (*DestructuredYankCallback)(linenr_T start_line, colnr_T start_col, linenr_T end_line, colnr_T end_col);
 typedef void (*TerminalCallback)(terminalRequest_t *terminalRequest);
 typedef int (*GotoCallback)(gotoRequest_T gotoInfo);
 typedef int (*TabPageCallback)(tabPageRequest_T tabPageInfo);

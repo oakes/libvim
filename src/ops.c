@@ -1675,7 +1675,7 @@ int op_delete(oparg_T *oap)
     if (did_yank)
     {
 
-      if (yankCallback != NULL)
+      if (yankCallback != NULL || destructuredYankCallback != NULL)
       {
         // Call yankCallback
         yankInfo_T *yankInfo = (yankInfo_T *)alloc(sizeof(yankInfo_T));
@@ -1687,7 +1687,14 @@ int op_delete(oparg_T *oap)
         yankInfo->regname = oap->regname;
         yankInfo->op_char = get_op_char(oap->op_type);
         yankInfo->extra_op_char = get_extra_op_char(oap->op_type);
-        yankCallback(yankInfo);
+        if (yankCallback != NULL)
+        {
+          yankCallback(yankInfo);
+        }
+        if (destructuredYankCallback != NULL)
+        {
+          destructuredYankCallback(yankInfo->start.lnum, yankInfo->start.col, yankInfo->end.lnum, yankInfo->end.col);
+        }
         vim_free(yankInfo);
       }
 
@@ -2974,7 +2981,7 @@ int op_yank(oparg_T *oap, int deleting, int mess)
 #if defined(FEAT_EVAL)
   if (!deleting)
   {
-    if (yankCallback != NULL)
+    if (yankCallback != NULL || destructuredYankCallback != NULL)
     {
       // Call yankCallback
       yankInfo_T *yankInfo = (yankInfo_T *)alloc(sizeof(yankInfo_T));
@@ -2986,7 +2993,14 @@ int op_yank(oparg_T *oap, int deleting, int mess)
       yankInfo->regname = oap->regname;
       yankInfo->op_char = get_op_char(oap->op_type);
       yankInfo->extra_op_char = get_extra_op_char(oap->op_type);
-      yankCallback(yankInfo);
+      if (yankCallback != NULL)
+      {
+        yankCallback(yankInfo);
+      }
+      if (destructuredYankCallback != NULL)
+      {
+        destructuredYankCallback(yankInfo->start.lnum, yankInfo->start.col, yankInfo->end.lnum, yankInfo->end.col);
+      }
       vim_free(yankInfo);
     }
     if (has_textyankpost())

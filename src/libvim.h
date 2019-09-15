@@ -308,6 +308,7 @@ void vimSetClipboardGetCallback(ClipboardGetCallback callback);
 int vimGetMode(void);
 
 void vimSetYankCallback(YankCallback callback);
+void vimSetDestructuredYankCallback(DestructuredYankCallback callback);
 
 /* Callbacks for when the `:intro` and `:version` commands are used
   
