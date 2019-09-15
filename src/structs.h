@@ -2436,6 +2436,7 @@ typedef void (*FileWriteFailureCallback)(writeFailureReason_T failureReason, buf
 typedef void (*MessageCallback)(char_u *title, char_u *msg, msgPriority_T priority);
 typedef void (*DirectoryChangedCallback)(char_u *path);
 typedef void (*QuitCallback)(buf_T *buf, int isForced);
+typedef void (*DestructuredVisualGetRangeCallback)(linenr_T start_line, colnr_T start_col, linenr_T end_line, colnr_T end_col);
 
 #ifdef FEAT_DIFF
 /*

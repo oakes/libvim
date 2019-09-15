@@ -241,10 +241,7 @@ int vimSelectIsActive(void);
  * If not in visual or select mode, returns the last visual range.
  */
 void vimVisualGetRange(pos_T *startPos, pos_T *endPos);
-linenr_T vimVisualGetStartLine();
-colnr_T vimVisualGetStartColumn();
-linenr_T vimVisualGetEndLine();
-colnr_T vimVisualGetEndColumn();
+void vimVisualGetRangeDestructured(DestructuredVisualGetRangeCallback callback);
 
 /***
  * Search

@@ -308,32 +308,11 @@ void vimVisualGetRange(pos_T *startPos, pos_T *endPos)
   }
 }
 
-linenr_T vimVisualGetStartLine()
+void vimVisualGetRangeDestructured(DestructuredVisualGetRangeCallback callback)
 {
   pos_T startPos, endPos;
   vimVisualGetRange(&startPos, &endPos);
-  return startPos.lnum;
-}
-
-colnr_T vimVisualGetStartColumn()
-{
-  pos_T startPos, endPos;
-  vimVisualGetRange(&startPos, &endPos);
-  return startPos.col;
-}
-
-linenr_T vimVisualGetEndLine()
-{
-  pos_T startPos, endPos;
-  vimVisualGetRange(&startPos, &endPos);
-  return endPos.lnum;
-}
-
-colnr_T vimVisualGetEndColumn()
-{
-  pos_T startPos, endPos;
-  vimVisualGetRange(&startPos, &endPos);
-  return endPos.col;
+  callback(startPos.lnum, startPos.col, endPos.lnum, endPos.col);
 }
 
 pos_T *vimSearchGetMatchingPair(int initc) { return findmatch(NULL, initc); }
