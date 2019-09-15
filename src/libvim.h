@@ -265,6 +265,8 @@ pos_T *vimSearchGetMatchingPair(int initc);
 void vimSearchGetHighlights(linenr_T start_lnum, linenr_T end_lnum,
                             int *num_highlights,
                             searchHighlight_T **highlights);
+void vimSearchGetHighlightsDestructured(linenr_T start_lnum, linenr_T end_lnum,
+                                        DestructuredSearchGetHighlightsCallback callback);
 
 /*
  * vimSearchGetPattern

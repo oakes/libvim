@@ -408,6 +408,20 @@ void vimSearchGetHighlights(linenr_T start_lnum, linenr_T end_lnum,
   *highlights = ret;
 }
 
+void vimSearchGetHighlightsDestructured(linenr_T start_lnum, linenr_T end_lnum,
+                                        DestructuredSearchGetHighlightsCallback callback)
+{
+  int num_highlights = 0;
+  searchHighlight_T *highlights = NULL;
+  vimSearchGetHighlights(start_lnum, end_lnum, &num_highlights, &highlights);
+  for (int i = 0; i < num_highlights; i++)
+  {
+    searchHighlight_T highlight = highlights[i];
+    callback(highlight.start.lnum, highlight.start.col, highlight.end.lnum, highlight.end.col);
+  }
+  vim_free(highlights);
+}
+
 char_u *vimSearchGetPattern(void) { return get_search_pat(); }
 
 void vimSetStopSearchHighlightCallback(VoidCallback callback)
