@@ -2439,6 +2439,7 @@ typedef void (*DirectoryChangedCallback)(char_u *path);
 typedef void (*QuitCallback)(buf_T *buf, int isForced);
 typedef void (*DestructuredVisualGetRangeCallback)(linenr_T start_line, colnr_T start_col, linenr_T end_line, colnr_T end_col);
 typedef void (*DestructuredSearchGetHighlightsCallback)(linenr_T start_line, colnr_T start_col, linenr_T end_line, colnr_T end_col);
+typedef void (*CommandLineGetCompletionCallback)(char_u *completion);
 
 #ifdef FEAT_DIFF
 /*

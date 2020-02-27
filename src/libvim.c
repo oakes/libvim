@@ -186,15 +186,18 @@ void vimCommandLineGetCompletions(char_u ***completions, int *count)
   expand_cmdline(ccline.xpc, ccline.cmdbuff, ccline.cmdpos, count, completions);
 }
 
-char_u *vimCommandLineGetCompletion(void)
+void vimCommandLineGetCompletion(CommandLineGetCompletionCallback f)
 {
   int count = 0;
   char_u **completions = NULL;
   vimCommandLineGetCompletions(&completions, &count);
   if (count > 0) {
-    return completions[0];
-  } else {
-    return NULL;
+    f(completions[0]);
+  }
+
+  for (int i = 0; i < count; i++)
+  {
+    vim_free(completions[i]);
   }
 }
 

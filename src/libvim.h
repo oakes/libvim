@@ -83,7 +83,7 @@ char_u vimCommandLineGetType(void);
 char_u *vimCommandLineGetText(void);
 int vimCommandLineGetPosition(void);
 void vimCommandLineGetCompletions(char_u ***completions, int *count);
-char_u *vimCommandLineGetCompletion(void);
+void vimCommandLineGetCompletion(CommandLineGetCompletionCallback getCompletionCallback);
 
 /**
 * Eval
